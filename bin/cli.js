@@ -49,6 +49,7 @@ function convertFiles (files, options) {
   files.forEach(function (file) {
     var filepath = path.join(options.src, file)
     var content = fs.readFileSync(filepath, 'utf8')
+    console.log('Converting file ', file);
     var compiled = amdtoes6(content, options)
     var destpath = options.replace ? filepath : path.join(options.dest, file)
     if (options.suffix) {
